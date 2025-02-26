@@ -5,6 +5,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: checout repo
+      - name: checkout repo
         uses: actions/checkout@v3
       - run: "g++ ./quadratic_solver.cpp -o quadratic_solver.exe"

@@ -4,7 +4,11 @@ on:
   push:
     branches: [ main ]
   pull_request:
-  
+
+permissions:
+  actions: write
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,3 +24,12 @@ jobs:
       - name: checkout repo
         uses: actions/checkout@v3
       - run: "bash quadratic.sh"
+   
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v3
+      - run: "chmod ugo+x" 
+      - run: "./quadratic_solver.exe 1 2 1"

@@ -31,5 +31,5 @@ jobs:
     steps:
       - name: checkout repo
         uses: actions/checkout@v3
-      - run: "chmod ugo+x" 
+      - run: "chmod ugo+x quadratic_solver.exe" 
       - run: "./quadratic_solver.exe 1 2 1"
